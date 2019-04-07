@@ -1,0 +1,14 @@
+C:\Users\tomme\source\repos\GradeTracker\GradeTracker\GradeTracker\obj\Debug\netstandard2.0\GradeTracker.csprojAssemblyReference.cache
+C:\Users\tomme\source\repos\GradeTracker\GradeTracker\GradeTracker\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\tomme\source\repos\GradeTracker\GradeTracker\GradeTracker\obj\Debug\netstandard2.0\GradeTracker.csproj.CoreCompileInputs.cache
+C:\Users\tomme\source\repos\GradeTracker\GradeTracker\GradeTracker\obj\Debug\netstandard2.0\GradeTracker.AssemblyInfoInputs.cache
+C:\Users\tomme\source\repos\GradeTracker\GradeTracker\GradeTracker\obj\Debug\netstandard2.0\GradeTracker.AssemblyInfo.cs
+C:\Users\tomme\source\repos\GradeTracker\GradeTracker\GradeTracker\obj\Debug\netstandard2.0\GradeTracker.dll
+C:\Users\tomme\source\repos\GradeTracker\GradeTracker\GradeTracker\obj\Debug\netstandard2.0\GradeTracker.pdb
+C:\Users\tomme\source\repos\GradeTracker\GradeTracker\GradeTracker\bin\Debug\netstandard2.0\GradeTracker.deps.json
+C:\Users\tomme\source\repos\GradeTracker\GradeTracker\GradeTracker\bin\Debug\netstandard2.0\GradeTracker.dll
+C:\Users\tomme\source\repos\GradeTracker\GradeTracker\GradeTracker\bin\Debug\netstandard2.0\GradeTracker.pdb
+C:\Users\tomme\source\repos\GradeTracker\GradeTracker\GradeTracker\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\tomme\source\repos\GradeTracker\GradeTracker\GradeTracker\obj\Debug\netstandard2.0\Views\AddModulePage.xaml.g.cs
+C:\Users\tomme\source\repos\GradeTracker\GradeTracker\GradeTracker\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
+C:\Users\tomme\source\repos\GradeTracker\GradeTracker\GradeTracker\obj\Debug\netstandard2.0\Views\ModuleInformationPage.xaml.g.cs

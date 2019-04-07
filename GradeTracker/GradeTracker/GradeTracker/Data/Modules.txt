@@ -1,0 +1,4 @@
+[
+{"module":"Mobile Applications", "numOfExams":"3", "examWeight":[40,50,10],
+ "examPercent":[60,80,75],"currPercent":"71.5"}
+]

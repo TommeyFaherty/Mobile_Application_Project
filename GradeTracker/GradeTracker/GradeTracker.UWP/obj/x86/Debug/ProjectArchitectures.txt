@@ -1,1 +1,0 @@
-C:\Users\tomme\source\repos\GradeTracker\GradeTracker\GradeTracker.UWP\GradeTracker.UWP.csproj;x86

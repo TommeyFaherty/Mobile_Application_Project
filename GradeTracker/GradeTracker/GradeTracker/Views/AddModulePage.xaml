@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GradeTracker.AddModulePage">
+
+    <!--#region == Resources ==-->
+    <ContentPage.Resources>
+        <Style x:Key="header" TargetType="Label">
+            <Setter Property="FontSize" Value="Large"/>
+            <Setter Property="BackgroundColor" Value="LightGray"/>
+        </Style>
+    </ContentPage.Resources>
+    <!--#endregion-->
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0">
+                <Label Style="{StaticResource header}" Text=""/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0">
+                <Label Text=""/>
+                <Entry />
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

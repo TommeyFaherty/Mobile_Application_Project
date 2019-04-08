@@ -16,12 +16,11 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="40"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="300"/>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="auto"/>
@@ -31,9 +30,32 @@
                 <Label Style="{StaticResource header}" Text=""/>
             </StackLayout>
 
-            <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0">
-                <Label Text=""/>
-                <Entry />
+            <StackLayout Orientation="Vertical" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4">
+                <StackLayout Orientation="Horizontal" Grid.Column="2">
+                    <Label Text="Module: "/>
+                    <Entry MinimumWidthRequest="5"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Column="2">
+                    <Label Text="Number of Exams: "/>
+                    <Entry MinimumWidthRequest="5"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Column="2">
+                    <Label Text="Exam Weight: "/>
+                    <Entry MinimumWidthRequest="5"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Column="2">
+                    <Label Text="Exam Percentage: "/>
+                    <Entry MinimumWidthRequest="5"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Column="2">
+                    <Label Text="Current Percentage: "/>
+                    <Entry MinimumWidthRequest="5"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Column="0" Grid.Row="2">
+                <Button Text="Save"/>
+                <Button x:Name="btnHomePage" Clicked="MainPage_Clicked" Text="Back"/>
             </StackLayout>
 
         </Grid>

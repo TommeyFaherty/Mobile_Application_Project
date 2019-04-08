@@ -14,11 +14,11 @@
             <ViewCell>
                 <StackLayout Margin="2" Orientation="Horizontal">
                     <StackLayout>
-                        <Label HorizontalTextAlignment="Start" Text="{Binding Path=module}"/>
+                        <Label Text="{Binding Path=module}"/>
                         <!-- module -->
                     </StackLayout>
                     <StackLayout>
-                        <Label HorizontalTextAlignment="End" Text="{Binding Path=currPercent}"/>
+                        <Label Text="{Binding Path=currPercent}"/>
                         <!-- percentage -->
                     </StackLayout>
                 </StackLayout>
@@ -29,10 +29,9 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -50,7 +49,7 @@
                   ItemTemplate="{StaticResource ModulesTemplate}" Grid.Row="1" 
                   Grid.Column="0" Grid.ColumnSpan="4"/>
 
-        <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="3">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Column="0" Grid.Row="2"  Grid.ColumnSpan="4">
             <Button x:Name="btnAddPage" Clicked="AddModulePage_Clicked" Text="Enter new course" Margin="3,2" />
         </StackLayout>
     </Grid>

@@ -398,11 +398,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tomme\\Github_Projects\\GradeTracker\\GradeTracker\\GradeTracker\\GradeTracker\\GradeTracker.csproj",
+      "projectUniqueName": "C:\\Users\\tomme\\source\\repos\\GradeTracker\\GradeTracker\\GradeTracker\\GradeTracker.csproj",
       "projectName": "GradeTracker",
-      "projectPath": "C:\\Users\\tomme\\Github_Projects\\GradeTracker\\GradeTracker\\GradeTracker\\GradeTracker\\GradeTracker.csproj",
+      "projectPath": "C:\\Users\\tomme\\source\\repos\\GradeTracker\\GradeTracker\\GradeTracker\\GradeTracker.csproj",
       "packagesPath": "C:\\Users\\tomme\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tomme\\Github_Projects\\GradeTracker\\GradeTracker\\GradeTracker\\GradeTracker\\obj\\",
+      "outputPath": "C:\\Users\\tomme\\source\\repos\\GradeTracker\\GradeTracker\\GradeTracker\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

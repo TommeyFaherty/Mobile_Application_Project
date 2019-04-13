@@ -29,7 +29,7 @@ namespace GradeTracker.ViewModels
 
             try
             {
-                string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+                string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
                 string filename = Path.Combine(path, Utils.Utils.JSON_MODULES_FILE);
 
                 using (var reader = new StreamReader(filename))
@@ -52,6 +52,23 @@ namespace GradeTracker.ViewModels
 
             myModules = JsonConvert.DeserializeObject<ObservableCollection<ModulesViewModel>>(jsonText);
             return myModules;
+        }
+
+        public static void SaveModuleList(ObservableCollection<ModulesViewModel> saveList)
+        {
+
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string filename = Path.Combine(path, Utils.Utils.JSON_MODULES_FILE);
+            
+
+            using (var writer = new StreamWriter(filename, false))
+            {
+                /*JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(writer,saveList);*/
+                string jsonText = JsonConvert.SerializeObject(saveList);
+                writer.WriteLine(jsonText);
+                writer.Close();
+            }
         }
         #endregion
     }

@@ -2,11 +2,72 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GradeTracker.ModuleInformationPage">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="Large"/>
+            <Setter Property="BackgroundColor" Value="LightGray"/>
+        </Style>
+
+        <!--Input BindingContext-->
+        <DataTemplate x:Key="examsInfoTemplate">
+            <ViewCell>
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout>
+                        <Label Text="Exams" TextDecorations="Underline"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Weight" TextDecorations="Underline"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="Percent" TextDecorations="Underline"/>
+                    </StackLayout>
+                </StackLayout>
+            </ViewCell>
+        </DataTemplate>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid x:Name="LayoutGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout x:Name="PageHeader" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3">
+                <!--Label with module Binded-->
+            </StackLayout>
+
+            <StackLayout x:Name="AmountOfExams" Grid.Column="1" Grid.Row="1">
+                <!-- Number of Exams Binded also try headers for table-->
+            </StackLayout>
+
+            <StackLayout x:Name="tableHeader" Orientation="Horizontal" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3">
+                <StackLayout>
+                    <Label Text="Exams" TextDecorations="Underline"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Weight" TextDecorations="Underline"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Percent" TextDecorations="Underline"/>
+                </StackLayout>
+            </StackLayout>
+
+            <ListView x:Name="examsInfo" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3"/>
+
+            <StackLayout x:Name="CurrentPercentage" Grid.Column="1" Grid.Row="4">
+                <!--Current Percentage Binded and if weight < 100% let user know-->
+            </StackLayout>
+            
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

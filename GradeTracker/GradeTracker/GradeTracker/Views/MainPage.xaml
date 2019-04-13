@@ -45,7 +45,7 @@
         <!-- User inserts course name -->
 
         <!-- List of user entered modules shown below -->
-        <ListView ItemsSource="{Binding ModulesList, Mode=OneWay}" Margin="2,3" 
+        <ListView x:Name="ListOfModules" ItemsSource="{Binding ModulesList, Mode=OneWay}" Margin="2,3" 
                   ItemTemplate="{StaticResource ModulesTemplate}" Grid.Row="1" 
                   Grid.Column="0" Grid.ColumnSpan="4"/>
 

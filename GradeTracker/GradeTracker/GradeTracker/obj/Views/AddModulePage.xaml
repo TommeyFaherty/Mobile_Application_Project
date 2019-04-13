@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:primitives="clr-namespace:Windows.UI.Xaml.Controls.Primitives;assembly=Windows.Foundation.UniversalApiContract"
+             xmlns:controls="clr-namespace:Windows.UI.Xaml.Controls;assembly=Windows.Foundation.UniversalApiContract"
+             x:Class="GradeTracker.AddModulePage">
+
+    <!--#region == Resources ==-->
+    <ContentPage.Resources>
+        <Style x:Key="header" TargetType="Label">
+            <Setter Property="FontSize" Value="Large"/>
+            <Setter Property="BackgroundColor" Value="LightGray"/>
+        </Style>
+    </ContentPage.Resources>
+    <!--#endregion-->
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0">
+                <Label Style="{StaticResource header}" Text=""/>
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical" Grid.Column="0" Grid.Row="1" 
+                         Grid.ColumnSpan="4" BindingContext="{Binding SelectedModule}">
+                <StackLayout Orientation="Horizontal" >
+                    <Label Text="Module: "/>
+                    <Entry MinimumWidthRequest="5" Text="{Binding Path= module}"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Number of Exams: "/>
+                    <Entry MinimumWidthRequest="5" Text="{Binding Path= numOfExams}"/>
+
+                </StackLayout>
+                <StackLayout Orientation="Vertical" Grid.ColumnSpan="4">
+                    <Label Text="Enter information on exams based on the number of exams"/>
+                    <Label Text= "For example: if 3 exams enter 'Assesment 1','Assesment 2', 'Assesment 3'" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Exam Titles: "/>
+                    <Entry MinimumWidthRequest="5" Grid.Column="3" Text="{Binding Path= examNames}"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Exam Weight: "/>
+                    <Entry MinimumWidthRequest="5" Grid.Column="3" Text="{Binding Path= examWeight}"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Exam Percentage: "/>
+                    <Entry MinimumWidthRequest="5" Grid.Column="3" Text="{Binding Path= examPercent}"/>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Column="0" Grid.Row="2">
+                <Button Text="Save" Command="{Binding SaveListCommand}"/>
+                <Button x:Name="btnHomePage" Clicked="MainPage_Clicked" Text="Back"/>
+            </StackLayout>
+
+        </Grid>
+       
+    </ContentPage.Content>
+  
+</ContentPage>

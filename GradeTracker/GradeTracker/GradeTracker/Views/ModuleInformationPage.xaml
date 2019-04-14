@@ -8,8 +8,11 @@
             <Setter Property="BackgroundColor" Value="LightGray"/>
         </Style>
 
+        <Style x:Key="layoutGrid" TargetType="Grid">
+            <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+        </Style>
+
         <Style x:Key="gridHeader" TargetType="Label">
-            <Setter Property="FontSize" Value="Medium"/>
             <Setter Property="BackgroundColor" Value="LightGray"/>
             <Setter Property="TextDecorations" Value="Underline"/>
         </Style>
@@ -34,7 +37,7 @@
     </ContentPage.Resources>
     
     <ContentPage.Content>
-        <Grid x:Name="LayoutGrid">
+        <Grid x:Name="LayoutGrid" Style="{StaticResource layoutGrid}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
@@ -57,15 +60,14 @@
                 <Label Text="{Binding Path=numOfExams}"/>
             </StackLayout>
 
-            <StackLayout x:Name="tableHeader" Orientation="Horizontal" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3">
-                <Label Text="Exam " Style="{StaticResource gridHeader}"/>
-                <Label Text="Weight" Style="{StaticResource gridHeader}"/>
-                <Label Text="Percentage" Style="{StaticResource gridHeader}"/>
-            </StackLayout>
+            <Label Text="Exam " Style="{StaticResource gridHeader}" Grid.Column="0" Grid.Row="2"/>
+            <Label Text="Weight" Style="{StaticResource gridHeader}" Grid.Column="1" Grid.Row="2"/>
+            <Label Text="Percentage" Style="{StaticResource gridHeader}" Grid.Column="2" Grid.Row="2"/>
+            
 
             <ListView x:Name="examsNames" ItemTemplate="{StaticResource examsInfoTemplate}"  Grid.Column="0" Grid.Row="3"/>
-            <ListView x:Name="examsWeight" ItemTemplate="{StaticResource examsInfoTemplate}"  Grid.Column="1" Grid.Row="3"/>
-            <ListView x:Name="examsPercent" ItemTemplate="{StaticResource examsInfoTemplate}"  Grid.Column="2" Grid.Row="3"/>
+            <ListView x:Name="examsWeight" ItemTemplate="{StaticResource examsInfoTemplate}" Grid.Column="1" Grid.Row="3"/>
+            <ListView x:Name="examsPercent" ItemTemplate="{StaticResource examsInfoTemplate}" Grid.Column="2" Grid.Row="3"/>
 
             <StackLayout x:Name="CurrentPercentage" Orientation="Vertical" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3">
                 <!--Current Percentage Binded and if weight < or > 100% let user know-->

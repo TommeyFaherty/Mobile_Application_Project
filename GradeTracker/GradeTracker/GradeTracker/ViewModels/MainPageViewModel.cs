@@ -15,7 +15,6 @@ namespace GradeTracker.ViewModels
         // ICommand is an interface with two methods
         // can execute and execute
         public ICommand ReadListCommand { get; private set; }
-        public ICommand SaveListCommand { get; private set; }
         public ICommand DeleteFromListCommand { get; private set; }
         #endregion
 

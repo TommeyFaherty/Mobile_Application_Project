@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace GradeTracker.ViewModels
 {
-    interface IPageService
+    public interface IPageService
     {
         // add some methods
         Task PushAsnyc(Page page);

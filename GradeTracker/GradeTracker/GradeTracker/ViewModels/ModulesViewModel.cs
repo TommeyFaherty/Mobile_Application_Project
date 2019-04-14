@@ -8,7 +8,7 @@ using System.Text;
 
 namespace GradeTracker.ViewModels
 {
-    class ModulesViewModel : BaseViewModel
+    public class ModulesViewModel : BaseViewModel
     {
         #region == Public Properties == 
         public string module { get; set; }
@@ -16,6 +16,7 @@ namespace GradeTracker.ViewModels
 
         //Exam 
         public int numOfExams { get; set; }
+        public List<string> examNames { get; set; }
         public List<int> examWeight { get; set; } //Toal must equal 100
         public List<double> examPercent { get; set; }
         public double currPercent { get; set; }

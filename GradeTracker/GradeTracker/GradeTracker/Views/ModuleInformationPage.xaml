@@ -3,24 +3,31 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GradeTracker.ModuleInformationPage">
     <ContentPage.Resources>
-        <Style TargetType="Label">
+        <Style x:Key="header" TargetType="Label">
             <Setter Property="FontSize" Value="Large"/>
             <Setter Property="BackgroundColor" Value="LightGray"/>
         </Style>
 
+        <Style x:Key="gridHeader" TargetType="Label">
+            <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="BackgroundColor" Value="LightGray"/>
+            <Setter Property="TextDecorations" Value="Underline"/>
+        </Style>
+
+        <Style x:Key="warning" TargetType="Label">
+            <Setter Property="TextColor" Value="Red"/>
+            <Setter Property="FontSize" Value="Small"/>
+        </Style>
+
+        <Style x:Key="percentage" TargetType="Label">
+            <Setter Property="FontSize" Value="Large"/>
+        </Style>
+
         <!--Input BindingContext-->
-        <DataTemplate x:Key="examsInfoTemplate">
+        <DataTemplate x:Name="examsInfoTemp" x:Key="examsInfoTemplate">
             <ViewCell>
-                <StackLayout Orientation="Horizontal">
-                    <StackLayout>
-                        <Label Text="Exams" TextDecorations="Underline"/>
-                    </StackLayout>
-                    <StackLayout>
-                        <Label Text="Weight" TextDecorations="Underline"/>
-                    </StackLayout>
-                    <StackLayout>
-                        <Label Text="Percent" TextDecorations="Underline"/>
-                    </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <Label Text="{Binding}"/>
                 </StackLayout>
             </ViewCell>
         </DataTemplate>
@@ -37,35 +44,38 @@
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
             </Grid.ColumnDefinitions>
 
             <StackLayout x:Name="PageHeader" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3">
-                <!--Label with module Binded-->
+                <Label Style="{StaticResource header}" Text="{Binding Path=module}"/>
             </StackLayout>
 
             <StackLayout x:Name="AmountOfExams" Grid.Column="1" Grid.Row="1">
-                <!-- Number of Exams Binded also try headers for table-->
+                <Label Text="{Binding Path=numOfExams}"/>
             </StackLayout>
 
             <StackLayout x:Name="tableHeader" Orientation="Horizontal" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3">
-                <StackLayout>
-                    <Label Text="Exams" TextDecorations="Underline"/>
-                </StackLayout>
-                <StackLayout>
-                    <Label Text="Weight" TextDecorations="Underline"/>
-                </StackLayout>
-                <StackLayout>
-                    <Label Text="Percent" TextDecorations="Underline"/>
-                </StackLayout>
+                <Label Text="Exam " Style="{StaticResource gridHeader}"/>
+                <Label Text="Weight" Style="{StaticResource gridHeader}"/>
+                <Label Text="Percentage" Style="{StaticResource gridHeader}"/>
             </StackLayout>
 
-            <ListView x:Name="examsInfo" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3"/>
+            <ListView x:Name="examsNames" ItemTemplate="{StaticResource examsInfoTemplate}"  Grid.Column="0" Grid.Row="3"/>
+            <ListView x:Name="examsWeight" ItemTemplate="{StaticResource examsInfoTemplate}"  Grid.Column="1" Grid.Row="3"/>
+            <ListView x:Name="examsPercent" ItemTemplate="{StaticResource examsInfoTemplate}"  Grid.Column="2" Grid.Row="3"/>
 
-            <StackLayout x:Name="CurrentPercentage" Grid.Column="1" Grid.Row="4">
-                <!--Current Percentage Binded and if weight < 100% let user know-->
+            <StackLayout x:Name="CurrentPercentage" Orientation="Vertical" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3">
+                <!--Current Percentage Binded and if weight < or > 100% let user know-->
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="{Binding Path=currPercent}" Style="{StaticResource percentage}"/>
+                    <Label Text="%" Style="{StaticResource percentage}"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="{Binding}" Style="{StaticResource warning}" x:Name="warningMsg"/>
+                </StackLayout>
             </StackLayout>
             
         </Grid>

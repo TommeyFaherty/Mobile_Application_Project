@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace GradeTracker.ViewModels
 {
-    class AddModulePageViewModel : BaseViewModel
+    public class AddModulePageViewModel : BaseViewModel
     {
 
         #region== Private Fields ==

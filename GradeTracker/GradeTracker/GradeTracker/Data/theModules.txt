@@ -2,5 +2,7 @@
 {"module":"Mobile Applications", "numOfExams":3, "examNames":["MCQ","Final exam","Assesment"], "examWeight":[40,50,10],
  "examPercent":[60.00,80.00,75.00],"currPercent":71.5},
  {"module":"Graph Theory", "numOfExams":4, "examNames":["MCQ1","MCQ2","Final exam","Assesment"], "examWeight":[5,40,50,5],
- "examPercent":[72.5,60.00,80.00,75.00],"currPercent":75.1}
+ "examPercent":[72.5,60.00,80.00,75.00],"currPercent":75.1},
+ {"module":"Networking", "numOfExams":4, "examNames":["MCQ1","MCQ2","Final exam","Assesment"], "examWeight":[14,40,50,5],
+ "examPercent":[72.5,60.00,80.00,75.00],"currPercent":78.2}
 ]

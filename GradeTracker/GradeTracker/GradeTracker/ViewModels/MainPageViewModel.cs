@@ -3,11 +3,22 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace GradeTracker.ViewModels
 {
-    class MainPageViewModel : BaseViewModel
+    public class MainPageViewModel : BaseViewModel
     {
+        #region == Command Properties ==
+        // ICommand is an interface with two methods
+        // can execute and execute
+        public ICommand ReadListCommand { get; private set; }
+        public ICommand SaveListCommand { get; private set; }
+        public ICommand DeleteFromListCommand { get; private set; }
+        #endregion
+
         #region== Private Fields ==
         private ObservableCollection<ModulesViewModel> modulesList;
         private ModulesViewModel selectedModule; //data to be bound
@@ -30,9 +41,13 @@ namespace GradeTracker.ViewModels
         //private void OnPropertyChanged method
 
         #region == Public Events == 
-        public MainPageViewModel()
+
+        private readonly IPageService _pageService;
+        public MainPageViewModel(IPageService pageService)
         {
+            _pageService = pageService;
             ReadList();
+            ReadListCommand = new Command(ReadList);
         }
 
         public void ReadList()
@@ -40,7 +55,13 @@ namespace GradeTracker.ViewModels
             ModulesList = ModulesViewModel.ReadModulesListData();
         }
 
+        public async Task SelectOneModule(ModulesViewModel module)
+        {
+            if (modulesList == null)
+                return;
 
+            await _pageService.PushAsnyc(new ModuleInformationPage(module));
+        }
         #endregion
     }
 }

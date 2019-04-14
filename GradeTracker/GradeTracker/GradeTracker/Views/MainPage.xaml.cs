@@ -14,12 +14,23 @@ namespace GradeTracker
         public MainPage()
         {
             InitializeComponent();
-            this.BindingContext = new MainPageViewModel();
+            this.BindingContext = new MainPageViewModel(new PageService());
         }
 
         private void AddModulePage_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new AddModulePage());
         }
+
+        private void MenuItem_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ModuleInformationPage());
+        }
+
+        private async void ListViewModuleSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            await (BindingContext as MainPageViewModel).SelectOneModule(e.SelectedItem as ModulesViewModel);
+        }
+
     }
 }

@@ -47,7 +47,7 @@ namespace GradeTracker.ViewModels
         #region == Public Events ==
         private void AddModule()
         {
-            //Debug.WriteLine(SelectedModule.module);
+            ModulesViewModel.SetData(newModule);
             ModulesViewModel.AddNewModule(NewModule, ModulesList);
         }
         #endregion

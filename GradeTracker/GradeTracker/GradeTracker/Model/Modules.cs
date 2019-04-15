@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Text;
@@ -31,33 +32,68 @@ namespace GradeTracker
         #region == Constructors ==
         public Modules()
         {
-            SetLists();
+            examNames = new List<string>();
+            examWeight = new List<int>();
+            examPercent = new List<double>();
+            //SetLists(examNamesString,examWeightString,examPercentString,examNames,examWeight,examPercent);
         }
 
-        public Modules(string m, int num,List<string> en, List<int> ew, List<double> ep)
-        {
-            module = m; numOfExams = num; examWeight = ew;
-            examNames = en; examPercent = ep; currPercent = CalculatePercentage(num,ew,ep);
-        }
         #endregion
 
         public static double CalculatePercentage(int exams,List<int> weight,List<double> percent)
         {
             double currPercent = 0;
             //Get overall percentage from weight and percentages
-            for (int i = 0; i <= exams; i++)
+            for (int i = 0; i < exams; i++)
             {
-                int tempWeight = 0;
-                tempWeight = weight[i] / 100;
-                currPercent += (double)tempWeight * percent[i];
+                double tempWeight = 0;
+                tempWeight = (double)weight[i] / 100;
+                currPercent += tempWeight * percent[i];
+                Debug.WriteLine(currPercent+"\n"+i);
             }   
 
             return currPercent;
         }
-
-        public static void SetLists(string en, string ew, string ep)
+        
+        public static List<string> SetNamesList(string enString, List<string> en)
         {
+            string[] holder = null;
 
+            //Put each exam Name into the List<string>
+            holder = enString.Split(',');
+            foreach (string word in holder)
+            {
+                en.Add(word);
+            }
+            return en;
+        }
+
+        public static List<int> SetWeightList(string ewString, List<int> ew)
+        {
+            string[] holder = null;
+
+            //Put each exam Weight into the List<int>
+            holder = ewString.Split(',');
+            foreach (string word in holder)
+            {
+                var number = int.Parse(word);
+                ew.Add(number);
+            }
+            return ew;
+        }
+
+        public static List<double> SetPercentList(string epString, List<double> ep)
+        {
+            string[] holder = null;
+
+            //Put each exam Percent into the List<double>
+            holder = epString.Split(',');
+            foreach (string word in holder)
+            {
+                var number = double.Parse(word);
+                ep.Add(number);
+            }
+            return ep;
         }
     }
 }

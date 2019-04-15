@@ -46,8 +46,7 @@ namespace GradeTracker.ViewModels
                 var assembly = IntrospectionExtensions.GetTypeInfo(typeof(MainPage)).Assembly;
 
                 Stream stream = assembly.GetManifestResourceStream("GradeTracker.Data.theModules.txt");
-
-                //assembly.GetType().Assembly.GetManifestResourceNames();
+                
                 using (var reader = new StreamReader(stream))
                 {
                     jsonText = reader.ReadToEnd();
@@ -59,7 +58,7 @@ namespace GradeTracker.ViewModels
         }
 
         public static void AddNewModule(Modules newModule,ObservableCollection<ModulesViewModel> currentModules)
-        {
+        {        
             string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string filename = Path.Combine(path, Utils.Utils.JSON_MODULES_FILE);
 
@@ -67,26 +66,33 @@ namespace GradeTracker.ViewModels
             string jsonTextCurrent = JsonConvert.SerializeObject(currentModules);
             string jsonTextNew = JsonConvert.SerializeObject(newModule);
 
+            //Remove empty string files
+            jsonTextNew = jsonTextNew.Remove((jsonTextNew.Length - 73));
+            jsonTextNew += "}";
+
             //Take out the closing bracket "]"
-             jsonTextCurrent = jsonTextCurrent.Remove(jsonTextCurrent.Length - 1);
-             jsonTextCurrent = jsonTextCurrent + ", " + jsonTextNew + "]";
+            jsonTextCurrent = jsonTextCurrent.Remove(jsonTextCurrent.Length - 1);
+            jsonTextCurrent = jsonTextCurrent + ", " + jsonTextNew + "]";
 
-             Debug.WriteLine(newModule.module);
+            using (var writer = new StreamWriter(filename, false))
+            {                
+                writer.WriteLine(jsonTextCurrent);
+            }
+        }
 
-             using (var writer = new StreamWriter(filename, false))
-             {                
-                 writer.WriteLine(jsonTextCurrent);
-             }
+        public static void SetData(Modules newModule)
+        {
+            //Fill Lists with respective data
+            newModule.examNames = Modules.SetNamesList(newModule.examNamesString, newModule.examNames);
+            newModule.examWeight = Modules.SetWeightList(newModule.examWeightString, newModule.examWeight);
+            newModule.examPercent = Modules.SetPercentList(newModule.examPercentString, newModule.examPercent);
 
-           /* Debug.WriteLine(jsonTextNew);
+            newModule.examNamesString = null;
+            newModule.examWeightString = null;
+            newModule.examPercentString = null;
 
-            JsonSerializer serializer = new JsonSerializer();
-            using (StreamWriter sw = new StreamWriter(filename))
-            using (JsonWriter writer = new JsonTextWriter(sw))
-            {
-                serializer.Serialize(writer, newModule);
-                // {"ExpiryDate":new Date(1230375600000),"Price":0}
-            }*/
+            //Calculate Current Percentage
+            newModule.currPercent = Modules.CalculatePercentage(newModule.numOfExams, newModule.examWeight, newModule.examPercent);
         }
         #endregion
     }

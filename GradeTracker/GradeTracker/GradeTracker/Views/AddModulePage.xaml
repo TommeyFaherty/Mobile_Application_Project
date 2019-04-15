@@ -49,15 +49,15 @@
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Exam Titles: "/>
-                    <Entry MinimumWidthRequest="5" Grid.Column="3" Text="{Binding Path= examNames}"/>
+                    <Entry MinimumWidthRequest="5" Grid.Column="3" Text="{Binding Path= examNamesString}"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Exam Weight: "/>
-                    <Entry MinimumWidthRequest="5" Grid.Column="3" Text="{Binding Path= examWeight}"/>
+                    <Entry MinimumWidthRequest="5" Grid.Column="3" Text="{Binding Path= examWeightString}"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Exam Percentage: "/>
-                    <Entry MinimumWidthRequest="5" Grid.Column="3" Text="{Binding Path= examPercent}"/>
+                    <Entry MinimumWidthRequest="5" Grid.Column="3" Text="{Binding Path= examPercentString}"/>
                 </StackLayout>
             </StackLayout>
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Column="0" Grid.Row="2">

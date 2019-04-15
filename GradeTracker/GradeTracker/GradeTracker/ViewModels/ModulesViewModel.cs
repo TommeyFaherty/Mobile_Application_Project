@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Text;
@@ -11,10 +12,12 @@ namespace GradeTracker.ViewModels
     public class ModulesViewModel : BaseViewModel
     {
         #region == Public Properties == 
-        public string module { get; set; }
-        public double currGrade { get; set; }
-
-        //Exam 
+        private string _module;
+        public string module
+        {
+            get { return _module; }
+            set { SetValue(ref _module, value); }
+        }
         public int numOfExams { get; set; }
         public List<string> examNames { get; set; }
         public List<int> examWeight { get; set; } //Toal must equal 100
@@ -30,7 +33,7 @@ namespace GradeTracker.ViewModels
 
             try
             {
-                string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
                 string filename = Path.Combine(path, Utils.Utils.JSON_MODULES_FILE);
 
                 using (var reader = new StreamReader(filename))
@@ -55,21 +58,35 @@ namespace GradeTracker.ViewModels
             return myModules;
         }
 
-        public static void SaveModuleList(ObservableCollection<ModulesViewModel> saveList)
+        public static void AddNewModule(Modules newModule,ObservableCollection<ModulesViewModel> currentModules)
         {
-
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string filename = Path.Combine(path, Utils.Utils.JSON_MODULES_FILE);
-            
 
-            using (var writer = new StreamWriter(filename, false))
+            //Get Current Modules and newModule as a string
+            string jsonTextCurrent = JsonConvert.SerializeObject(currentModules);
+            string jsonTextNew = JsonConvert.SerializeObject(newModule);
+
+            //Take out the closing bracket "]"
+             jsonTextCurrent = jsonTextCurrent.Remove(jsonTextCurrent.Length - 1);
+             jsonTextCurrent = jsonTextCurrent + ", " + jsonTextNew + "]";
+
+             Debug.WriteLine(newModule.module);
+
+             using (var writer = new StreamWriter(filename, false))
+             {                
+                 writer.WriteLine(jsonTextCurrent);
+             }
+
+           /* Debug.WriteLine(jsonTextNew);
+
+            JsonSerializer serializer = new JsonSerializer();
+            using (StreamWriter sw = new StreamWriter(filename))
+            using (JsonWriter writer = new JsonTextWriter(sw))
             {
-                /*JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(writer,saveList);*/
-                string jsonText = JsonConvert.SerializeObject(saveList);
-                writer.WriteLine(jsonText);
-                writer.Close();
-            }
+                serializer.Serialize(writer, newModule);
+                // {"ExpiryDate":new Date(1230375600000),"Price":0}
+            }*/
         }
         #endregion
     }

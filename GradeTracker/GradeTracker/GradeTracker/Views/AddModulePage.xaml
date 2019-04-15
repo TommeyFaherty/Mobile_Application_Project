@@ -13,7 +13,7 @@
         </Style>
     </ContentPage.Resources>
     <!--#endregion-->
-
+    
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -33,7 +33,7 @@
             </StackLayout>
 
             <StackLayout x:Name="addModules" Orientation="Vertical" Grid.Column="0" Grid.Row="1" 
-                         Grid.ColumnSpan="4" BindingContext="{Binding SelectedModule}">
+                         Grid.ColumnSpan="4" BindingContext="{Binding NewModule}">
                 <StackLayout Orientation="Horizontal" >
                     <Label Text="Module: "/>
                     <Entry MinimumWidthRequest="5" Text="{Binding Path= module}"/>

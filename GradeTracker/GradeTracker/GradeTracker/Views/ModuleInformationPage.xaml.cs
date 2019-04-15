@@ -49,7 +49,7 @@ namespace GradeTracker
 
             if (total < 100)
             {
-                message = (total-100)+"% is not accounted for in this module as it was not entered when inputing the module";
+                message = (100-total)+"% is not accounted for in this module as it was not entered when inputing the module";
                 warningMsg.BindingContext = message;
             }
             if(total > 100)

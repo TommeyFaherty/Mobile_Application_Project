@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
@@ -12,7 +13,7 @@ namespace GradeTracker.ViewModels
 
         #region== Private Fields ==
         private ObservableCollection<ModulesViewModel> modulesList;
-        private ModulesViewModel selectedModule; //data to be bound
+        private Modules newModule = new Modules();
         #endregion
 
         #region == Command Properties ==
@@ -23,8 +24,10 @@ namespace GradeTracker.ViewModels
         private readonly IPageService _pageService;
         public AddModulePageViewModel(IPageService pageService)
         {
-            _pageService = pageService;          
-            SaveListCommand = new Command(SaveList);
+            _pageService = pageService;
+            ModulesList = ModulesViewModel.ReadModulesListData();
+            SaveListCommand = new Command(AddModule);
+            //Debug.WriteLine(this.SelectedModule.module);
         }
 
         public ObservableCollection<ModulesViewModel> ModulesList
@@ -33,18 +36,19 @@ namespace GradeTracker.ViewModels
             set { SetValue(ref modulesList, value); }
         }
 
-        public ModulesViewModel SelectedModule
+        public Modules NewModule
         {
-            get { return selectedModule; }
-            set { SetValue(ref selectedModule, value); }
+            get { return newModule; }
+            set { SetValue(ref newModule, value); }
         }
         #endregion
 
 
         #region == Public Events ==
-        private void SaveList()
+        private void AddModule()
         {
-            ModulesViewModel.SaveModuleList(ModulesList);
+            //Debug.WriteLine(SelectedModule.module);
+            ModulesViewModel.AddNewModule(NewModule, ModulesList);
         }
         #endregion
     }

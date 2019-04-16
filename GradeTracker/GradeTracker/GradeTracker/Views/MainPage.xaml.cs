@@ -22,9 +22,10 @@ namespace GradeTracker
             Navigation.PushAsync(new AddModulePage());
         }
 
-        private void MenuItem_Clicked(object sender, EventArgs e)
+        private void DeleteItem_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new ModuleInformationPage());
+            ModulesViewModel module = (sender as MenuItem).CommandParameter as ModulesViewModel;
+            (BindingContext as MainPageViewModel).DeleteFromListCommand.Execute(module);
         }
 
         private async void ListViewModuleSelected(object sender, SelectedItemChangedEventArgs e)

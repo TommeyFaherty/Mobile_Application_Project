@@ -11,6 +11,11 @@
             <Setter Property="FontSize" Value="Large"/>
             <Setter Property="BackgroundColor" Value="LightGray"/>
         </Style>
+
+        <Style x:Key="warning" TargetType="Label">
+            <Setter Property="TextColor" Value="Red"/>
+            <Setter Property="FontSize" Value="Small"/>
+        </Style>
     </ContentPage.Resources>
     <!--#endregion-->
     
@@ -60,8 +65,13 @@
                     <Entry MinimumWidthRequest="5" Grid.Column="3" Text="{Binding Path= examPercentString}"/>
                 </StackLayout>
             </StackLayout>
+
+            <StackLayout>
+                <Label x:Name="errorMsg" BindingContext="{Binding ErrorMsg}" Text="{Binding}" Style="{StaticResource warning}"/>
+            </StackLayout>
+
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Column="0" Grid.Row="2">
-                <Button Text="Save" Command="{Binding SaveListCommand}"/>
+                <Button Text="Save" Command="{Binding SaveListCommand}" Clicked="MainPage_Clicked"/>
                 <Button x:Name="btnHomePage" Clicked="MainPage_Clicked" Text="Back"/>
             </StackLayout>
 

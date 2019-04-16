@@ -14,6 +14,7 @@ namespace GradeTracker.ViewModels
         #region== Private Fields ==
         private ObservableCollection<ModulesViewModel> modulesList;
         private Modules newModule = new Modules();
+        private string errorMsg = null;
         #endregion
 
         #region == Command Properties ==
@@ -41,14 +42,36 @@ namespace GradeTracker.ViewModels
             get { return newModule; }
             set { SetValue(ref newModule, value); }
         }
+
+        public string ErrorMsg
+        {
+            get { return errorMsg; }
+            set { SetValue(ref errorMsg, value); }
+        }
         #endregion
 
 
         #region == Public Events ==
         private void AddModule()
         {
+            bool validEntry = true;
             ModulesViewModel.SetData(newModule);
+            validEntry = ModulesViewModel.CheckEntryValidity(newModule, validEntry);
+
+            //if still valid method continues and new Module is saved
+            if (validEntry == false)
+            {
+                ErrorMsg = ErrorMessage();
+                return;
+            }
+
             ModulesViewModel.AddNewModule(NewModule, ModulesList);
+        }
+
+        public string ErrorMessage()
+        {
+            string msg = "";
+            return msg = "Number of exams is not consistent with Names, Weight and percent";
         }
         #endregion
     }

@@ -82,17 +82,40 @@ namespace GradeTracker.ViewModels
 
         public static void SetData(Modules newModule)
         {
+            Debug.WriteLine("Check here: "+newModule.examNamesString+"|| "+newModule.examWeightString+"|| "+newModule.examPercentString);
+
             //Fill Lists with respective data
             newModule.examNames = Modules.SetNamesList(newModule.examNamesString, newModule.examNames);
             newModule.examWeight = Modules.SetWeightList(newModule.examWeightString, newModule.examWeight);
             newModule.examPercent = Modules.SetPercentList(newModule.examPercentString, newModule.examPercent);
 
+            //Calculate Current Percentage
+            newModule.currPercent = Modules.CalculatePercentage(newModule.numOfExams, newModule.examWeight, newModule.examPercent);
+        }
+
+        public static bool CheckEntryValidity(Modules newModule, bool valid)
+        {
+            //Check that all List data has number of items equal to NumOfExams 
+            if (newModule.examNames.Count != newModule.numOfExams)
+            {
+                valid = false;
+            }
+
+            if (newModule.examWeight.Count != newModule.numOfExams)
+            {
+                valid = false;
+            }
+
+            if (newModule.examPercent.Count != newModule.numOfExams)
+            {
+                valid = false;
+            }
+
             newModule.examNamesString = null;
             newModule.examWeightString = null;
             newModule.examPercentString = null;
 
-            //Calculate Current Percentage
-            newModule.currPercent = Modules.CalculatePercentage(newModule.numOfExams, newModule.examWeight, newModule.examPercent);
+            return valid;
         }
         #endregion
     }

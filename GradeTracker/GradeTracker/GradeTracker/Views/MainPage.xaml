@@ -10,10 +10,15 @@
             <Setter Property="FontSize" Value="Large"/>
             <Setter Property="BackgroundColor" Value="LightGray"/>
         </Style>
+
+        <Style x:Key="warning" TargetType="Label">
+            <Setter Property="TextColor" Value="Red"/>
+            <Setter Property="FontSize" Value="Small"/>
+        </Style>
         <DataTemplate x:Key="ModulesTemplate">
             <ViewCell>
                 <ViewCell.ContextActions>
-                    <MenuItem Text="Acess Module Information" Clicked="MenuItem_Clicked"
+                    <MenuItem Text="Delete Module" Clicked="DeleteItem_Clicked"
                               CommandParameter="{Binding .}"/>
                 </ViewCell.ContextActions>
                 <StackLayout Margin="2" Orientation="Horizontal">
@@ -52,6 +57,10 @@
         <ListView x:Name="ListOfModules" ItemsSource="{Binding ModulesList, Mode=OneWay}" Margin="2,3" 
                   SelectedItem="{Binding SelectedModule, Mode=OneWay}" ItemTemplate="{StaticResource ModulesTemplate}" 
                   ItemSelected="ListViewModuleSelected" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4"/>
+
+        <StackLayout>
+            <Label x:Name="errorMsg" BindingContext="{Binding ErrorMsg}" Text="{Binding}" Style="{StaticResource warning}"/>
+        </StackLayout>
 
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Column="0" Grid.Row="2"  Grid.ColumnSpan="4">
             <Button x:Name="btnAddPage" Clicked="AddModulePage_Clicked" Text="Enter new course" Margin="3,2" />

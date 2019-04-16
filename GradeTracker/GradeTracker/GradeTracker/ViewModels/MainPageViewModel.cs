@@ -35,6 +35,8 @@ namespace GradeTracker.ViewModels
             get { return selectedModule; }
             set { SetValue(ref selectedModule, value); }
         }
+
+        public string msg = "";
         #endregion
 
         //private void OnPropertyChanged method
@@ -47,11 +49,18 @@ namespace GradeTracker.ViewModels
             _pageService = pageService;
             ReadList();
             ReadListCommand = new Command(ReadList);
+            DeleteFromListCommand = new Command<ModulesViewModel>(DeleteFromList);
         }
 
         public void ReadList()
         {
             ModulesList = ModulesViewModel.ReadModulesListData();
+        }
+
+        public void DeleteFromList(ModulesViewModel m)
+        {
+            ModulesList.Remove(m);
+            SelectedModule = null;
         }
 
         public async Task SelectOneModule(ModulesViewModel module)

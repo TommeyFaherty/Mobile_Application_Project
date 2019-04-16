@@ -32,9 +32,9 @@ namespace GradeTracker
         #region == Constructors ==
         public Modules()
         {
-            examNames = new List<string>();
-            examWeight = new List<int>();
-            examPercent = new List<double>();
+            //examNames = new List<string>();
+            //examWeight = new List<int>();
+           // examPercent = new List<double>();
             //SetLists(examNamesString,examWeightString,examPercentString,examNames,examWeight,examPercent);
         }
 
@@ -57,6 +57,7 @@ namespace GradeTracker
         
         public static List<string> SetNamesList(string enString, List<string> en)
         {
+            en = new List<string>();
             string[] holder = null;
 
             //Put each exam Name into the List<string>
@@ -70,6 +71,7 @@ namespace GradeTracker
 
         public static List<int> SetWeightList(string ewString, List<int> ew)
         {
+            ew = new List<int>();
             string[] holder = null;
 
             //Put each exam Weight into the List<int>
@@ -84,6 +86,7 @@ namespace GradeTracker
 
         public static List<double> SetPercentList(string epString, List<double> ep)
         {
+            ep = new List<double>();
             string[] holder = null;
 
             //Put each exam Percent into the List<double>

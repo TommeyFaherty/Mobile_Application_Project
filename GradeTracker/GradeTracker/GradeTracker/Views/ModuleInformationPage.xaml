@@ -72,6 +72,9 @@
                 <StackLayout>
                     <Label Text="{Binding}" Style="{StaticResource warning}" x:Name="warningMsg"/>
                 </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Column="0" Grid.Row="2">
+                    <Button x:Name="btnHomePage" Clicked="MainPage_Clicked" Text="Back"/>
+                </StackLayout>
             </StackLayout>
             
         </Grid>

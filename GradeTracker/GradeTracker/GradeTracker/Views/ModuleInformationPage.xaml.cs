@@ -61,5 +61,10 @@ namespace GradeTracker
             else
                 return;           
         }
+
+        private void MainPage_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new MainPage());
+        }
     }
 }

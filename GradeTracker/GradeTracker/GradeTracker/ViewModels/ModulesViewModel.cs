@@ -95,6 +95,17 @@ namespace GradeTracker.ViewModels
 
         public static bool CheckEntryValidity(Modules newModule, bool valid)
         {
+            ObservableCollection<ModulesViewModel> list = ModulesViewModel.ReadModulesListData();
+
+            //Stops user from creating two of the same module
+            foreach(var m in list)
+            {
+                if(m.module == newModule.module)
+                {
+                    valid = false;
+                }
+            }
+
             //Check that all List data has number of items equal to NumOfExams 
             if (newModule.examNames.Count != newModule.numOfExams)
             {
@@ -116,6 +127,18 @@ namespace GradeTracker.ViewModels
             newModule.examPercentString = null;
 
             return valid;
+        }
+        
+        public static void SaveListData(ObservableCollection<ModulesViewModel> saveList)
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string fileName = Path.Combine(path, Utils.Utils.JSON_MODULES_FILE);
+            
+            using (var writer = new StreamWriter(fileName, false))
+            {
+                string jsonText = JsonConvert.SerializeObject(saveList);
+                writer.WriteLine(jsonText);
+            }
         }
         #endregion
     }

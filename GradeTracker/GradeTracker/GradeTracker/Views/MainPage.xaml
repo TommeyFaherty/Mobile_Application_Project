@@ -24,11 +24,9 @@
                 <StackLayout Margin="2" Orientation="Horizontal">
                     <StackLayout>
                         <Label Text="{Binding Path=module}"/>
-                        <!-- module -->
                     </StackLayout>
                     <StackLayout>
                         <Label Text="{Binding Path=currPercent}"/>
-                        <!-- percentage -->
                     </StackLayout>
                 </StackLayout>
             </ViewCell>
@@ -51,9 +49,6 @@
 
         <Label Text="Grade Tracker" Style="{StaticResource header}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"/>
 
-        <!-- User inserts course name -->
-
-        <!-- List of user entered modules shown below -->
         <ListView x:Name="ListOfModules" ItemsSource="{Binding ModulesList, Mode=OneWay}" Margin="2,3" 
                   SelectedItem="{Binding SelectedModule, Mode=OneWay}" ItemTemplate="{StaticResource ModulesTemplate}" 
                   ItemSelected="ListViewModuleSelected" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4"/>

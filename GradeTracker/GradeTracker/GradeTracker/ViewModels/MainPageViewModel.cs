@@ -39,8 +39,6 @@ namespace GradeTracker.ViewModels
         public string msg = "";
         #endregion
 
-        //private void OnPropertyChanged method
-
         #region == Public Events == 
 
         private readonly IPageService _pageService;
@@ -61,6 +59,7 @@ namespace GradeTracker.ViewModels
         {
             ModulesList.Remove(m);
             SelectedModule = null;
+            ModulesViewModel.SaveListData(ModulesList);
         }
 
         public async Task SelectOneModule(ModulesViewModel module)

@@ -26,7 +26,6 @@ C:\Users\tommey\Github_Projects\GradeTracker\Mobile_Application_Project\Mobile_A
 C:\Users\tommey\Github_Projects\GradeTracker\Mobile_Application_Project\Mobile_Application_Project\GradeTracker\GradeTracker\GradeTracker\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\tommey\Github_Projects\GradeTracker\Mobile_Application_Project\Mobile_Application_Project\GradeTracker\GradeTracker\GradeTracker\obj\Debug\netstandard2.0\GradeTracker.dll
 C:\Users\tommey\Github_Projects\GradeTracker\Mobile_Application_Project\Mobile_Application_Project\GradeTracker\GradeTracker\GradeTracker\obj\Debug\netstandard2.0\GradeTracker.pdb
-C:\Users\tomme\source\repos\GradeTracker\GradeTracker\GradeTracker\obj\Debug\netstandard2.0\GradeTracker.csprojAssemblyReference.cache
 C:\Users\tomme\source\repos\GradeTracker\GradeTracker\GradeTracker\obj\Debug\netstandard2.0\App.xaml.g.cs
 C:\Users\tomme\source\repos\GradeTracker\GradeTracker\GradeTracker\obj\Debug\netstandard2.0\Views\AddModulePage.xaml.g.cs
 C:\Users\tomme\source\repos\GradeTracker\GradeTracker\GradeTracker\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
@@ -40,3 +39,8 @@ C:\Users\tomme\source\repos\GradeTracker\GradeTracker\GradeTracker\bin\Debug\net
 C:\Users\tomme\source\repos\GradeTracker\GradeTracker\GradeTracker\bin\Debug\netstandard2.0\GradeTracker.dll
 C:\Users\tomme\source\repos\GradeTracker\GradeTracker\GradeTracker\bin\Debug\netstandard2.0\GradeTracker.pdb
 C:\Users\tomme\source\repos\GradeTracker\GradeTracker\GradeTracker\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\tomme\source\repos\GradeTracker\GradeTracker\GradeTracker\bin\Debug\netstandard2.0\Windows.Foundation.UniversalApiContract.winmd
+C:\Users\tomme\source\repos\GradeTracker\GradeTracker\GradeTracker\obj\Debug\netstandard2.0\GradeTracker.csproj.CopyComplete
+C:\Users\tomme\source\repos\GradeTracker\GradeTracker\GradeTracker\obj\Debug\netstandard2.0\GradeTracker.csprojAssemblyReference.cache
+C:\Users\tomme\Github_Projects\GradeTracker\GradeTracker\GradeTracker\GradeTracker\bin\Debug\netstandard2.0\Windows.Foundation.UniversalApiContract.winmd
+C:\Users\tomme\Github_Projects\GradeTracker\GradeTracker\GradeTracker\GradeTracker\obj\Debug\netstandard2.0\GradeTracker.csproj.CopyComplete

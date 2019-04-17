@@ -16,6 +16,22 @@
             <Setter Property="TextColor" Value="Red"/>
             <Setter Property="FontSize" Value="Small"/>
         </Style>
+
+        <Style x:Key="instruction" TargetType="Label">
+            <Setter Property="TextColor" Value="Black"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+
+        <Style x:Key="instructionLayout" TargetType="StackLayout">
+            <Setter Property="BackgroundColor" Value="OrangeRed"/>
+            <Setter Property="Margin" Value="2,2"/>
+        </Style>
+
+        <Style x:Key="entryBox" TargetType="Entry">
+            <Setter Property="WidthRequest" Value="200"/>
+            <Setter Property="MinimumHeightRequest" Value="150"/>
+        </Style>
+        
     </ContentPage.Resources>
     <!--#endregion-->
     
@@ -41,33 +57,29 @@
                          Grid.ColumnSpan="4" BindingContext="{Binding NewModule}">
                 <StackLayout Orientation="Horizontal" >
                     <Label Text="Module: "/>
-                    <Entry MinimumWidthRequest="5" Text="{Binding Path= module}"/>
+                    <Entry Style="{StaticResource entryBox}" Text="{Binding Path= module}"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Number of Exams: "/>
                     <Entry MinimumWidthRequest="5" Text="{Binding Path= numOfExams}"/>
 
                 </StackLayout>
-                <StackLayout Orientation="Vertical" Grid.ColumnSpan="4">
-                    <Label Text="Enter information on exams based on the number of exams"/>
-                    <Label Text= "For example: if 3 exams enter 'Assesment 1','Assesment 2', 'Assesment 3'" />
+                <StackLayout Orientation="Vertical" Grid.ColumnSpan="4" Style="{StaticResource instructionLayout}">
+                    <Label Style="{StaticResource instruction}" Text="Enter information on exams based on the number of exams"/>
+                    <Label Style="{StaticResource instruction}" Text= "For example: if 3 exams enter 'Assesment 1,Assesment 2, Assesment 3'" />
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Exam Titles: "/>
-                    <Entry MinimumWidthRequest="5" Grid.Column="3" Text="{Binding Path= examNamesString}"/>
+                    <Entry Style="{StaticResource entryBox}" Grid.Column="3" Text="{Binding Path= examNamesString}"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Exam Weight: "/>
-                    <Entry MinimumWidthRequest="5" Grid.Column="3" Text="{Binding Path= examWeightString}"/>
+                    <Entry Style="{StaticResource entryBox}" Grid.Column="3" Text="{Binding Path= examWeightString}"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Exam Percentage: "/>
-                    <Entry MinimumWidthRequest="5" Grid.Column="3" Text="{Binding Path= examPercentString}"/>
+                    <Entry Style="{StaticResource entryBox}" Grid.Column="3" Text="{Binding Path= examPercentString}"/>
                 </StackLayout>
-            </StackLayout>
-
-            <StackLayout>
-                <Label x:Name="errorMsg" BindingContext="{Binding ErrorMsg}" Text="{Binding}" Style="{StaticResource warning}"/>
             </StackLayout>
 
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Grid.Column="0" Grid.Row="2">
